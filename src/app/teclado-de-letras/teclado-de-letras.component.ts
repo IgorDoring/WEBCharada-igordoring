@@ -10,6 +10,7 @@ export class TecladoDeLetrasComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

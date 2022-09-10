@@ -1,0 +1,14 @@
+#tecladoContainer div{
+	width: 85%;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.tecla{
+	padding: 1rem;
+	margin: 5px;
+	border: 1px solid #000;
+	border-radius: 5px;
+}

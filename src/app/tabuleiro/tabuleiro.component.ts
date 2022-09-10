@@ -22,4 +22,8 @@ export class TabuleiroComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  montarIndex(linha: any, coluna: any): string {
+    return linha + "-" + coluna;
+  }
+
 }
