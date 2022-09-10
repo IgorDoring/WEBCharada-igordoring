@@ -1,0 +1,42 @@
+h1{
+	margin-top: 50px;
+	text-align: center;
+}
+
+div#board{
+	display: flex;
+	flex-flow: row wrap;
+	width: 85%;
+	margin: 0 auto;
+	margin-top: 25px;
+	justify-content: center;
+}
+
+.linha{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.linha .coluna p{
+	padding: 1.3rem;
+	margin: 4px;
+	text-align: center;
+	background-color: white;
+	border: 1px solid #000;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+.linha .coluna.acerto p{
+	background-color: seagreen;
+	color: white;
+}
+.linha .coluna.lugarErrado p{
+	background-color: #cc7000;
+	color: white;
+}
+.linha .coluna.erro p{
+	background-color: indianred;
+	color: white;
+}
