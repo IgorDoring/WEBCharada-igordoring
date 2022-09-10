@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TecladoDeLetrasComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit(): void {
-    
+
   }
 
 }

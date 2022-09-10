@@ -17,13 +17,18 @@ export class TabuleiroComponent implements OnInit {
     [{letra: "A6", classe: ""}, {letra: "B6", classe: ""}, {letra: "C6", classe: ""}, {letra: "D6", classe: ""}, {letra: "E6", classe: ""}]
   ];
 
+  montarIndex(linha: any, coluna: any): string {
+    return linha + "-" + coluna;
+  }
+
+  getLetra() : void {
+    alert(JSON.stringify(this));
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  montarIndex(linha: any, coluna: any): string {
-    return linha + "-" + coluna;
-  }
 
 }

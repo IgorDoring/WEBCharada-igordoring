@@ -1,3 +1,7 @@
+#tecladoContainer {
+	margin-top: 50px;
+}
+
 #tecladoContainer div{
 	width: 85%;
 	margin: 0 auto;
@@ -9,6 +13,7 @@
 .tecla{
 	padding: 1rem;
 	margin: 5px;
+	background-color: white;
 	border: 1px solid #000;
 	border-radius: 5px;
 }
