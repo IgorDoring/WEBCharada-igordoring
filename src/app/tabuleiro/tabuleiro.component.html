@@ -1,47 +1,47 @@
 <h1>CHARADA</h1>
 <div id="board">
-	<div *ngFor="let linhas of tabuleiro; let i=index;" class="linha">
-		<div *ngFor="let coluna of linhas; let j=index;"  class="coluna" 
+	<div *ngFor="let linha of tabuleiro; let i=index;" class="linha">
+		<div *ngFor="let coluna of linha; let j=index;"  class="coluna" 
 		[class.acerto]="coluna.classe == 'acerto'"
 		[class.erro]="coluna.classe == 'erro'"
 		[class.lugarErrado]="coluna.classe == 'lugarErrado'">
-			<p [id]="montarIndex(i,j)"></p>
+			<p [id]="montarIndex(i,j)">{{coluna.letra}}</p>
 		</div>
 	</div>
 </div>
 <div id="tecladoContainer">
 	<div>
-		<p class="tecla" (click)="getLetra()">Q</p>
-		<p class="tecla">W</p>
-		<p class="tecla">E</p>
-		<p class="tecla">R</p>
-		<p class="tecla">T</p>
-		<p class="tecla">Y</p>
-		<p class="tecla">U</p>
-		<p class="tecla">I</p>
-		<p class="tecla">O</p>
-		<p class="tecla">P</p>
+		<p class="tecla" (click)="getLetra('Q')">Q</p>
+		<p class="tecla" (click)="getLetra('W')">W</p>
+		<p class="tecla" (click)="getLetra('E')">E</p>
+		<p class="tecla" (click)="getLetra('R')">R</p>
+		<p class="tecla" (click)="getLetra('T')">T</p>
+		<p class="tecla" (click)="getLetra('Y')">Y</p>
+		<p class="tecla" (click)="getLetra('U')">U</p>
+		<p class="tecla" (click)="getLetra('I')">I</p>
+		<p class="tecla" (click)="getLetra('O')">O</p>
+		<p class="tecla" (click)="getLetra('P')">P</p>
 	</div>
 	<div>
-		<p class="tecla">A</p>
-		<p class="tecla">S</p>
-		<p class="tecla">D</p>
-		<p class="tecla">F</p>
-		<p class="tecla">G</p>
-		<p class="tecla">H</p>
-		<p class="tecla">J</p>
-		<p class="tecla">K</p>
-		<p class="tecla">L</p>
-		<p class="tecla">Apagar</p>
+		<p class="tecla" (click)="getLetra('A')">A</p>
+		<p class="tecla" (click)="getLetra('S')">S</p>
+		<p class="tecla" (click)="getLetra('D')">D</p>
+		<p class="tecla" (click)="getLetra('F')">F</p>
+		<p class="tecla" (click)="getLetra('G')">G</p>
+		<p class="tecla" (click)="getLetra('H')">H</p>
+		<p class="tecla" (click)="getLetra('J')">J</p>
+		<p class="tecla" (click)="getLetra('K')">K</p>
+		<p class="tecla" (click)="getLetra('L')">L</p>
+		<p class="tecla" (click)="getLetra('Apagar')">Apagar</p>
 	</div>
 	<div>
-		<p class="tecla">Z</p>
-		<p class="tecla">X</p>
-		<p class="tecla">C</p>
-		<p class="tecla">V</p>
-		<p class="tecla">B</p>
-		<p class="tecla">N</p>
-		<p class="tecla">M</p>
-		<p class="tecla">Enter</p>
+		<p class="tecla" (click)="getLetra('Z')">Z</p>
+		<p class="tecla" (click)="getLetra('X')">X</p>
+		<p class="tecla" (click)="getLetra('C')">C</p>
+		<p class="tecla" (click)="getLetra('V')">V</p>
+		<p class="tecla" (click)="getLetra('B')">B</p>
+		<p class="tecla" (click)="getLetra('N')">N</p>
+		<p class="tecla" (click)="getLetra('M')">M</p>
+		<p class="tecla" (click)="getLetra('Enter')">Enter</p>
 	</div>
 </div>
