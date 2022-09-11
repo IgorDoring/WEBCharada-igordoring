@@ -37,7 +37,7 @@ div#board{
 	color: white;
 }
 .linha .coluna.erro p{
-	background-color: indianred;
+	background-color: darkgray;
 	color: white;
 }
 
@@ -56,7 +56,7 @@ div#board{
 .tecla{
 	padding: 1rem;
 	margin: 5px;
-	background-color: white;
+	background-color: whitesmoke;
 	border: 1px solid #000;
 	border-radius: 5px;
 }
