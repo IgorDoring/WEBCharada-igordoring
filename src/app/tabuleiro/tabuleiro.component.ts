@@ -28,7 +28,7 @@ export class TabuleiroComponent implements OnInit {
 	}
 
 	getLetra(letra: string) : void {
-		if (this.coluna<5&&this.linhas<6){
+		if (this.coluna<5&&this.linha<6){
 			this.tabuleiro[this.linha][this.coluna].letra = letra;
 			this.coluna += 1;
 			this.palavraUser = this.palavraUser + letra.toUpperCase();
@@ -36,7 +36,7 @@ export class TabuleiroComponent implements OnInit {
 	}
 
 	apagarLetra(): void{
-		if(this.coluna > 0&&this.linhas<6){
+		if(this.coluna > 0&&this.linha<6){
 			this.coluna -= 1;
 			this.tabuleiro[this.linha][this.coluna].letra = "";
 			this.palavraUser = this.palavraUser.slice(0, this.coluna);
@@ -64,7 +64,7 @@ export class TabuleiroComponent implements OnInit {
 			if(this.ganhou==5){
 				alert("ganhou");
 			}else{
-				if(this.linhas==5){
+				if(this.linha==5){
 					alert("todas as tentativas usadas");
 				}else{
 					this.ganhou = 0;
