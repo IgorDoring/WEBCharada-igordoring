@@ -15,12 +15,12 @@ export class TabuleiroComponent implements OnInit {
 	ganhou: number = 0;
 
 	tabuleiro: any[][] = [
-		[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}],
-		[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}],
-		[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}],
-		[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}],
-		[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}],
-		[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}]
+	[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}],
+	[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}],
+	[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}],
+	[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}],
+	[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}],
+	[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}]
 	];
 
 	montarIndex(linha: any, coluna: any): string {
@@ -44,35 +44,34 @@ export class TabuleiroComponent implements OnInit {
 	}
 
 	adivinhar(): void {
-			for (let j = 0; j < 5; j++){
-				if (this.palavraUser.charAt(j) == this.palavraAdivinhar.charAt(j)){
-					this.tabuleiro[this.linha][j].classe = "acerto";
-					this.ganhou++;
-					continue;
-				}
-				if(this.palavraUser.charAt(j) != this.palavraAdivinhar.charAt(j)&&
-					this.palavraAdivinhar.indexOf(this.palavraUser.charAt(j)) > -1){
-					this.tabuleiro[this.linha][j].classe = "lugarErrado";
-					continue;
-				}
-				if(this.palavraUser.charAt(j) != this.palavraAdivinhar.charAt(j)&&
-					this.palavraAdivinhar.indexOf(this.palavraUser.charAt(j)) == -1){
-					this.tabuleiro[this.linha][j].classe = "erro";
-					continue;
-				}
-			}
-			if(this.ganhou==5){
-				alert("ganhou");
+		for (let i = 0; i < 5; i++){
+			if (this.palavraUser.charAt(i) == this.palavraAdivinhar.charAt(i)){
+				this.tabuleiro[this.linha][i].classe = "acerto";
+				this.ganhou++;
 			}else{
-				if(this.linha==5){
-					alert("todas as tentativas usadas");
+				if(this.palavraAdivinhar.indexOf(this.palavraUser.charAt(i)) > -1){
+					if(this.palavraUser.lastIndexOf(this.palavraUser.charAt(i)) > i){
+						this.tabuleiro[this.linha][i].classe = "lugarErrado";
+					}else{
+						this.tabuleiro[this.linha][i].classe = "erro";
+					}
 				}else{
-					this.ganhou = 0;
-					this.linha += 1;
-					this.coluna = 0;
-					this.palavraUser = "";
+					this.tabuleiro[this.linha][i].classe = "erro";
 				}
 			}
+		}
+		if(this.ganhou==5){
+			alert("ganhou");
+		}else{
+			if(this.linha==5){
+				alert("todas as tentativas usadas");
+			}else{
+				this.ganhou = 0;
+				this.linha += 1;
+				this.coluna = 0;
+				this.palavraUser = "";
+			}
+		}
 	}
 
 	constructor() { }
