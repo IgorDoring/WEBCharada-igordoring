@@ -66,13 +66,13 @@ export class TabuleiroComponent implements OnInit {
 			}else{
 				if(resposta.join("").indexOf(tentativa[i]) > -1){
 					this.tabuleiro[this.linha][i].classe = "lugarErrado";
-					resposta[resposta.join("").indexOf(tentativa[i])] = "";
+					resposta[resposta.join("").indexOf(tentativa[i])] = " ";
 				}else{
 					this.tabuleiro[this.linha][i].classe = "erro";
 				}	
 			}
 		}
-		if(this.linha < 6){
+		if(this.linha < 5){
 			this.linha += 1;
 			this.coluna = 0;
 			this.palavraUser = "";

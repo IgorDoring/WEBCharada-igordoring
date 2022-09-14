@@ -1,53 +1,47 @@
 h1{
-	margin-top: 50px;
+	margin: 20px 0;
 	text-align: center;
-}
-
-div#board{
-	display: flex;
-	flex-flow: row wrap;
-	width: 85%;
-	margin: 0 auto;
-	margin-top: 25px;
-	justify-content: center;
 }
 
 .linha{
-	width: 100%;
+	position: relative;
 	display: flex;
 	justify-content: center;
 }
 
-.linha .coluna p{
-	padding: 1.3rem;
-	margin: 4px;
+.linha .coluna{
+	width: 50px;
+	height: 50px;
+	padding: 10px;
+	margin: 4px 2px;
+	font-size: 1.5vw;
+	font-weight: bold;
 	text-align: center;
 	background-color: white;
-	border: 1px solid #000;
+	border: 2px solid #000;
 	border-radius: 10px;
-	font-weight: bold;
 }
 
-.linha .coluna.acerto p{
+.linha .coluna.acerto{
 	background-color: seagreen;
 	color: white;
 }
-.linha .coluna.lugarErrado p{
+.linha .coluna.lugarErrado{
 	background-color: #cc7000;
 	color: white;
 }
-.linha .coluna.erro p{
+.linha .coluna.erro{
 	background-color: darkgray;
 	color: white;
 }
 
 #tecladoContainer {
-	margin-top: 50px;
+	position: fixed;
+	width: 100%;
+	bottom: 20px;
 }
 
 #tecladoContainer div{
-	width: 85%;
-	margin: 0 auto;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
@@ -59,4 +53,11 @@ div#board{
 	background-color: whitesmoke;
 	border: 1px solid #000;
 	border-radius: 5px;
+}
+
+@media screen and (max-width: 768px){
+	#tecladoContainer {
+		position: relative;
+		margin-top: 50px;
+	}
 }
