@@ -12,7 +12,7 @@ export class TabuleiroComponent implements OnInit {
 	coluna: number = 0;
 	palavraUser: string = "";
 	palavraAdivinhar: string = "ASSAR";
-	ganhou: number = 0;
+	mensagem: string = "";
 
 	tabuleiro: any[][] = [
 	[{letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}, {letra: "", classe: ""}],
@@ -43,35 +43,69 @@ export class TabuleiroComponent implements OnInit {
 		}
 	}
 
-	adivinhar(): void {
-		for (let i = 0; i < 5; i++){
-			if (this.palavraUser.charAt(i) == this.palavraAdivinhar.charAt(i)){
+	adivinhar(tentativa: string[] = this.palavraUser.split(""), resposta: string[] = this.palavraAdivinhar.split("")): void {
+		if(this.coluna == 6){
+			this.mensagem = "É obrigatório conter 5 letras.";
+			return;
+		}
+		let ganhou: number = 0;
+		// inicia o loop
+		for(let i = 0; i < 5; i++){
+			if(tentativa[i]==resposta[i]){
 				this.tabuleiro[this.linha][i].classe = "acerto";
-				this.ganhou++;
+				ganhou++;
+			}else if(resposta.join("").indexOf(tentativa[i], i) > -1){
+				this.tabuleiro[this.linha][i].classe = "lugarErrado";
+				resposta[resposta.join("").indexOf(tentativa[i]), i] = "";
 			}else{
-				if(this.palavraAdivinhar.indexOf(this.palavraUser.charAt(i)) > -1){
-					if(this.palavraUser.lastIndexOf(this.palavraUser.charAt(i)) > i){
-						this.tabuleiro[this.linha][i].classe = "lugarErrado";
-					}else{
-						this.tabuleiro[this.linha][i].classe = "erro";
-					}
-				}else{
-					this.tabuleiro[this.linha][i].classe = "erro";
-				}
+				this.tabuleiro[this.linha][i].classe = "erro";
 			}
 		}
-		if(this.ganhou==5){
-			alert("ganhou");
+		if(ganhou == 5){
+			this.mensagem = "GANHOU! A Palavra era "+this.palavraAdivinhar+"!";
 		}else{
-			if(this.linha==5){
-				alert("todas as tentativas usadas");
-			}else{
-				this.ganhou = 0;
-				this.linha += 1;
-				this.coluna = 0;
-				this.palavraUser = "";
+			if(this.linha < 6){
+				this.mensagem = "Não foi desta vez, mais sorte na próxima! A Palavra era "+this.palavraAdivinhar+".";
 			}
 		}
+
+		// inicia loop
+		// for (let i = 0; i < 5; i++){
+		// 	//se a letra da coluna da palavra do usuario for a mesma letra da mesma coluna da palavra chave
+		// 	if (this.palavraUser.charAt(i) == this.palavraAdivinhar.charAt(i)){
+		// 		//se sim, classifica a letra como um acerto, cinco acertos ganha o jogo
+		// 		this.tabuleiro[this.linha][i].classe = "acerto";
+		// 		this.ganhou++;
+		// 		if(this.ganhou==5){
+		// 			mensagem = "GANHOU! A Palavra era "+this.palavraAdivinhar+"!";
+		// 			break;
+		// 		}
+		// 	//se nao
+		// 	}else{
+		// 		//checa se a letra existe na palavra
+		// 		if(this.palavraAdivinhar.indexOf(this.palavraUser.charAt(i)) > -1){
+		// 			//se sim, checa se só existe uma daquela letra na palavra
+		// 			if(this.palavraAdivinhar.indexOf(this.palavraUser.charAt(i))== 
+		// 				this.palavraAdivinhar.lastIndexOf(this.palavraUser.charAt(i))){
+		// 				//se for uma letra soh, classifica letra como no lugar errado
+		// 					this.tabuleiro[this.linha][i].classe = "lugarErrado";
+		// 			}else{
+		// 			}
+		// 		//se não, a letra esta errada
+		// 		}else{ 
+		// 			this.tabuleiro[this.linha][i].classe = "erro";
+		// 		}
+		// 	}
+		// }
+		// 	if(this.linha==5){
+		// 		alert("todas as tentativas usadas");
+		// 	}else{
+		// 		this.ganhou = 0;
+		// 		this.linha += 1;
+		// 		this.coluna = 0;
+		// 		this.palavraUser = "";
+			
+		// }
 	}
 
 	constructor() { }
