@@ -1,25 +1,25 @@
 <h1>CHARADA</h1>
 <h4>{{mensagem}}</h4>
 <div id="board">
-	<div *ngFor="let linha of tabuleiro; let i=index;" class="linha">
-		<div *ngFor="let coluna of linha; let j=index;"  class="coluna" 
+	<div *ngFor="let linha of tabuleiro;" class="linha">
+		<div *ngFor="let coluna of linha;"  class="coluna" 
 		[class.acerto]="coluna.classe == 'acerto'"
 		[class.erro]="coluna.classe == 'erro'"
 		[class.lugarErrado]="coluna.classe == 'lugarErrado'">
-			<p [id]="montarIndex(i,j)">{{coluna.letra}}</p>
+			<p>{{coluna.letra}}</p>
 		</div>
 	</div>
 </div>
 <div id="tecladoContainer">
 	<div>
-		<p *ngFor="let letra of ['Q','W','E','R','T','Y','U','I','O','P']" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
+		<p *ngFor="let letra of ['Q','W','E','R','T','Y','U','I','O','P'];let j=index;" [id]="montarIndex(1,j)" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
 	</div>
 	<div>
-		<p *ngFor="let letra of ['A','S','D','F','G','H','J','K','L']" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
+		<p *ngFor="let letra of ['A','S','D','F','G','H','J','K','L'];let j=index;" [id]="montarIndex(2,j)" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
 		<p class="tecla" (click)="apagarLetra()">Apagar</p>
 	</div>
 	<div>
-		<p *ngFor="let letra of ['Z','X','C','V','B','N','M']" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
+		<p *ngFor="let letra of ['Z','X','C','V','B','N','M'];let j=index;" [id]="montarIndex(3,j)" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
 		<p class="tecla" (click)="adivinhar()">Enter</p>
 	</div>
 </div>
