@@ -1,4 +1,5 @@
 <h1>CHARADA</h1>
+<h4>{{mensagem}}</h4>
 <div id="board">
 	<div *ngFor="let linha of tabuleiro; let i=index;" class="linha">
 		<div *ngFor="let coluna of linha; let j=index;"  class="coluna" 
@@ -11,37 +12,14 @@
 </div>
 <div id="tecladoContainer">
 	<div>
-		<p class="tecla" (click)="getLetra('Q')">Q</p>
-		<p class="tecla" (click)="getLetra('W')">W</p>
-		<p class="tecla" (click)="getLetra('E')">E</p>
-		<p class="tecla" (click)="getLetra('R')">R</p>
-		<p class="tecla" (click)="getLetra('T')">T</p>
-		<p class="tecla" (click)="getLetra('Y')">Y</p>
-		<p class="tecla" (click)="getLetra('U')">U</p>
-		<p class="tecla" (click)="getLetra('I')">I</p>
-		<p class="tecla" (click)="getLetra('O')">O</p>
-		<p class="tecla" (click)="getLetra('P')">P</p>
+		<p *ngFor="let letra of ['Q','W','E','R','T','Y','U','I','O','P']" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
 	</div>
 	<div>
-		<p class="tecla" (click)="getLetra('A')">A</p>
-		<p class="tecla" (click)="getLetra('S')">S</p>
-		<p class="tecla" (click)="getLetra('D')">D</p>
-		<p class="tecla" (click)="getLetra('F')">F</p>
-		<p class="tecla" (click)="getLetra('G')">G</p>
-		<p class="tecla" (click)="getLetra('H')">H</p>
-		<p class="tecla" (click)="getLetra('J')">J</p>
-		<p class="tecla" (click)="getLetra('K')">K</p>
-		<p class="tecla" (click)="getLetra('L')">L</p>
+		<p *ngFor="let letra of ['A','S','D','F','G','H','J','K','L']" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
 		<p class="tecla" (click)="apagarLetra()">Apagar</p>
 	</div>
 	<div>
-		<p class="tecla" (click)="getLetra('Z')">Z</p>
-		<p class="tecla" (click)="getLetra('X')">X</p>
-		<p class="tecla" (click)="getLetra('C')">C</p>
-		<p class="tecla" (click)="getLetra('V')">V</p>
-		<p class="tecla" (click)="getLetra('B')">B</p>
-		<p class="tecla" (click)="getLetra('N')">N</p>
-		<p class="tecla" (click)="getLetra('M')">M</p>
+		<p *ngFor="let letra of ['Z','X','C','V','B','N','M']" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
 		<p class="tecla" (click)="adivinhar()">Enter</p>
 	</div>
 </div>
