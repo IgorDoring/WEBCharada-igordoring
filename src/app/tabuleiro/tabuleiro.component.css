@@ -10,16 +10,20 @@ h1{
 }
 
 .linha .coluna{
-	width: 50px;
-	height: 50px;
-	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
 	margin: 4px 2px;
-	font-size: 1.5vw;
-	font-weight: bold;
-	text-align: center;
 	background-color: white;
 	border: 2px solid #000;
 	border-radius: 10px;
+}
+
+.linha .coluna p{
+	font-size: 1.5vw;
+	font-weight: bold;
 }
 
 .linha .coluna.acerto{
@@ -36,28 +40,81 @@ h1{
 }
 
 #tecladoContainer {
-	position: fixed;
-	width: 100%;
-	bottom: 20px;
+	position: relative;
 }
 
 #tecladoContainer div{
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row nowrap;
 	justify-content: center;
 }
 
 .tecla{
-	padding: 1rem;
+	padding: 1.5vw;
 	margin: 5px;
 	background-color: whitesmoke;
 	border: 1px solid #000;
 	border-radius: 5px;
 }
 
-@media screen and (max-width: 768px){
+#mensagem{
+	margin: 20px auto;
+}
+
+#mensagem h4{
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+	border: 2px solid #000;
+	border-radius: 4px;
+	visibility: hidden;
+}
+
+#mensagem h4.acerto{
+	visibility: visible;
+	color: white;
+	background-color: seagreen;
+}
+
+#mensagem h4.aviso{
+	visibility: visible;
+	color: black;
+	background-color: gold;
+}
+
+#mensagem h4.erro{
+	visibility: visible;
+	color: white;
+	background-color: firebrick;
+}
+
+@media screen and (min-width: 768px){
+	.linha .coluna{
+		width: 50px;
+		height: 50px;
+		font-weight: bold;
+	}
+
 	#tecladoContainer {
-		position: relative;
-		margin-top: 50px;
+		position: fixed;
+		width: 100%;
+		bottom: 30px;
+	}
+
+	.tecla{
+		padding: 1vw;
+		background-color: whitesmoke;
+		border: 1px solid #000;
+		border-radius: 5px;
+	}
+
+	#mensagem{
+		margin-top: 30px;
+		text-align: center;
+	}
+
+	#mensagem h4{
+		width: 25%;
 	}
 }

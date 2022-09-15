@@ -12,7 +12,7 @@ export class TabuleiroComponent implements OnInit {
 	coluna: number = 0;
 	palavraUser: string = "";
 	palavraAdivinhar: string = "ASSAR";
-	mensagem: string = "";
+	mensagem: any = {classe: "", text: ""};
 	acertou: boolean = false;
 	primeiraRowTeclado: string[] = ['Q','W','E','R','T','Y','U','I','O','P'];
 	segundaRowTeclado: string[] = ['Q','W','E','R','T','Y','U','I','O','P'];
@@ -50,7 +50,8 @@ export class TabuleiroComponent implements OnInit {
 	adivinhar(tentativa: string[] = this.palavraUser.split(""), resposta: string[] = this.palavraAdivinhar.split("")): void {
 		let ganhou: number = 0;
 		if(this.coluna < 5){
-			this.mensagem = "É obrigatório conter 5 letras.";
+			this.mensagem.classe = "aviso";
+			this.mensagem.text = "É obrigatório conter 5 letras.";
 			return;
 		}
 		for(let i = 0; i < 5; i++){
@@ -59,7 +60,8 @@ export class TabuleiroComponent implements OnInit {
 				ganhou++;
 				resposta[i] = " ";
 				if(ganhou == 5){
-					this.mensagem = "Descobriu!";
+					this.mensagem.classe = "acerto";
+					this.mensagem.text = "Descobriu!";
 					this.acertou = true;
 					return;
 				}
@@ -77,7 +79,8 @@ export class TabuleiroComponent implements OnInit {
 			this.coluna = 0;
 			this.palavraUser = "";
 		}else{
-			this.mensagem = "Não foi desta vez, mais sorte na próxima! A Palavra era "+this.palavraAdivinhar+".";
+			this.mensagem.classe = "erro";
+			this.mensagem.text = "Não foi desta vez, mais sorte na próxima! A Palavra era "+this.palavraAdivinhar+".";
 		}
 	}
 

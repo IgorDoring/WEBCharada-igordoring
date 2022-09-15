@@ -1,5 +1,4 @@
 <h1>CHARADA</h1>
-<h4>{{mensagem}}</h4>
 <div id="board">
 	<div *ngFor="let linha of tabuleiro;" class="linha">
 		<p *ngFor="let coluna of linha;"  class="coluna" 
@@ -8,6 +7,9 @@
 		[class.lugarErrado]="coluna.classe == 'lugarErrado'">{{coluna.letra}}</p>
 		
 	</div>
+</div>
+<div id="mensagem">
+	<h4 [class]="mensagem.classe">{{mensagem.text}}</h4>
 </div>
 <div id="tecladoContainer">
 	<div>
