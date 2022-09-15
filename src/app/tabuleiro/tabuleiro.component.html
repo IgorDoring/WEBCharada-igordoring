@@ -13,14 +13,29 @@
 </div>
 <div id="tecladoContainer">
 	<div>
-		<p *ngFor="let letra of ['Q','W','E','R','T','Y','U','I','O','P'];let j=index;" [id]="montarIndex(1,j)" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
+		<p *ngFor="let letra of ['Q','W','E','R','T','Y','U','I','O','P']" 
+		class="tecla"  
+		[class.acerto]="checkLetra(letra) == 'acerto'"
+		[class.lugarErrado]="checkLetra(letra) == 'lugarErrado'"
+		[class.erro]="checkLetra(letra) == 'erro'"
+		(click)="getLetra(letra)">{{letra}}</p>
 	</div>
 	<div>
-		<p *ngFor="let letra of ['A','S','D','F','G','H','J','K','L'];let j=index;" [id]="montarIndex(2,j)" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
+		<p *ngFor="let letra of ['A','S','D','F','G','H','J','K','L']" 
+		class="tecla" 
+		[class.acerto]="checkLetra(letra) == 'acerto'"
+		[class.lugarErrado]="checkLetra(letra) == 'lugarErrado'"
+		[class.erro]="checkLetra(letra) == 'erro'"
+		(click)="getLetra(letra)">{{letra}}</p>
 		<p class="tecla" (click)="apagarLetra()">Apagar</p>
 	</div>
 	<div>
-		<p *ngFor="let letra of ['Z','X','C','V','B','N','M'];let j=index;" [id]="montarIndex(3,j)" class="tecla" (click)="getLetra(letra)">{{letra}}</p>
+		<p *ngFor="let letra of ['Z','X','C','V','B','N','M']" 
+		class="tecla" 
+		[class.acerto]="checkLetra(letra) == 'acerto'"
+		[class.lugarErrado]="checkLetra(letra) == 'lugarErrado'"
+		[class.erro]="checkLetra(letra) == 'erro'"
+		(click)="getLetra(letra)">{{letra}}</p>
 		<p class="tecla" (click)="adivinhar()">Enter</p>
 	</div>
 </div>

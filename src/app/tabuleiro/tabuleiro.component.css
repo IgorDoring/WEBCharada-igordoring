@@ -26,15 +26,15 @@ h1{
 	font-weight: bold;
 }
 
-.linha .coluna.acerto{
+.linha .coluna.acerto, .tecla.acerto{
 	background-color: seagreen;
 	color: white;
 }
-.linha .coluna.lugarErrado{
+.linha .coluna.lugarErrado, .tecla.lugarErrado{
 	background-color: #cc7000;
 	color: white;
 }
-.linha .coluna.erro{
+.linha .coluna.erro, .tecla.erro{
 	background-color: darkgray;
 	color: white;
 }
