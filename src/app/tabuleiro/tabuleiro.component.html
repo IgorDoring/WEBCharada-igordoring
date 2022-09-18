@@ -1,13 +1,14 @@
 <h1>CHARADA</h1>
+<p class="reset" *ngIf="tabuleiroService.terminaJogo" (click)="tabuleiroService.resetGame()">Clique aqui para tentar Novamente</p>
 <div id="board">
 	<div *ngFor="let linha of tabuleiro;" class="linha">
 		<p *ngFor="let coluna of linha;"  class="coluna" 
 		[class.acerto]="coluna.classe == 'acerto'"
 		[class.erro]="coluna.classe == 'erro'"
 		[class.lugarErrado]="coluna.classe == 'lugarErrado'">{{coluna.letra}}</p>
-		
 	</div>
 </div>
+{{palavraAdivinhar}}
 <div id="mensagem">
 	<h4 [class]="mensagem.classe">{{mensagem.text}}</h4>
 </div>

@@ -58,14 +58,14 @@ h1{
 }
 
 #mensagem{
-	margin: 20px auto;
+	margin: 14px auto;
+	text-align: center;
 }
 
 #mensagem h4{
 	width: 80%;
 	margin: 0 auto;
 	padding: 10px;
-	text-align: center;
 	border: 2px solid #000;
 	border-radius: 4px;
 	visibility: hidden;
@@ -87,6 +87,20 @@ h1{
 	visibility: visible;
 	color: white;
 	background-color: firebrick;
+}
+
+p.reset{
+	position: absolute;
+	top: 10px;
+	left: 0;
+	right: 0;
+	width: 60%;
+	margin: 8px auto;
+	padding: 10px;
+	text-align: center;
+	background-color: aqua;
+	border: 1px solid #000;
+	border-radius: 12px;
 }
 
 @media screen and (min-width: 768px){
@@ -111,10 +125,9 @@ h1{
 
 	#mensagem{
 		margin-top: 30px;
-		text-align: center;
 	}
 
-	#mensagem h4{
+	#mensagem h4, p.reset{
 		width: 25%;
 	}
 }
