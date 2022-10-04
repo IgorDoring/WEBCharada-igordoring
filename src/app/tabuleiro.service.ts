@@ -82,7 +82,7 @@ export class TabuleiroService {
 	}
 
 	adivinhar(tentativa: string[] = this.palavraUser.split(""), resposta: string[]  = this.palavraAdivinhar.split("")): void {
-		console.log(tentativa);
+	
 		let ganhou: number = 0;
 		if(this.coluna < 5){
 			this.mensagem.classe = "aviso";
